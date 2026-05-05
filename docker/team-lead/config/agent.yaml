@@ -1,0 +1,21 @@
+agent:
+  name: Team Lead
+  description: Orchestrator agent that breaks down work and delegates to sub-agents
+  url: http://team-lead:8080/a2a/
+  version: 1.0.0
+  prompt: |
+    You are an experienced team lead. You receive requests, break them down into tasks,
+    and delegate them to the appropriate sub-agents using the available tools.
+    You MUST use the task delegation tool to hand off work to sub-agents — never answer directly on their behalf.
+    After all sub-agents have responded, combine their results into a coherent response.
+  orchestrator: true
+  task: Check if your team is working
+  sub-agents:
+    - http://scrum-master:8080/a2a
+  skills:
+    - id: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+      name: orchestrate tasks
+      description: Breaks down a request into tasks and delegates to sub-agents
+      tags:
+        - orchestration
+        - delegation

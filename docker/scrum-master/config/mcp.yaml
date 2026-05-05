@@ -1,0 +1,9 @@
+mcp:
+  clients:
+    - name: project-management-mcp
+      url: https://mcp.example.com
+      auth-type: OAUTH2
+      oauth:
+        token-url: https://keycloak.example.com/realms/example/protocol/openid-connect/token
+        client-id: ce749014-ff94-4425-889f-8e92d2da4f44
+        client-secret: 183d775b-2a0c-44d5-9c49-14715eab9e14

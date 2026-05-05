@@ -1,0 +1,24 @@
+agent:
+  name: Scrum Master
+  description: Agent that manages the scrum process and creates user stories and sprint plans
+  url: http://scrum-master:8080/a2a/
+  version: 1.0.0
+  prompt: |
+    You are an experienced scrum master. You translate requirements into user stories,
+    manage the backlog, and plan sprints. You ensure that work is well-defined
+    and ready for the development team.
+  orchestrator: false
+  sub-agents: []
+  skills:
+    - id: b2c3d4e5-f6a7-8901-bcde-f12345678901
+      name: create user stories
+      description: Creates user stories with acceptance criteria from requirements
+      tags:
+        - scrum
+        - user-stories
+    - id: c3d4e5f6-a7b8-9012-cdef-123456789012
+      name: plan sprint
+      description: Plans a sprint based on the backlog and team capacity
+      tags:
+        - scrum
+        - sprint-planning

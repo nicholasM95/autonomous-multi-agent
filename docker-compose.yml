@@ -1,0 +1,26 @@
+services:
+
+  team-lead:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./docker/team-lead/config/agent.yaml:/config/agent.yaml
+      - ./docker/team-lead/config/mcp.yaml:/config/mcp.yaml
+    depends_on:
+      scrum-master:
+        condition: service_healthy
+
+  scrum-master:
+    build: .
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./docker/scrum-master/config/agent.yaml:/config/agent.yaml
+      - ./docker/scrum-master/config/mcp.yaml:/config/mcp.yaml
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/a2a/card"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 15s

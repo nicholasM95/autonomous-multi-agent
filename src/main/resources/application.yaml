@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ai-agent
+  main:
+    banner-mode: off
+  config:
+    import:
+      - optional:file:/config/agent.yaml
+      - optional:file:/config/mcp.yaml
+  ai:
+    openai:
+      base-url: ${OPENAI_BASE_URL}
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: ${OPENAI_MODEL}
+
+    mcp:
+      client:
+        initialized: false
+server:
+  servlet:
+    context-path: /a2a
