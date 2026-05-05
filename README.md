@@ -12,10 +12,10 @@ A lightweight framework for building **autonomous multi-agent systems** on top o
 - Agents can connect to external tools and APIs through [MCP (Model Context Protocol)](https://modelcontextprotocol.io) clients, with support for OAuth2 and other auth types.
 
 ```
-┌──────────────┐        A2A        ┌──────────────────┐
-│  Team Lead   │ ───────────────►  │   Scrum Master   │
-│ (orchestrator)│                  │    (worker)       │
-└──────────────┘                   └──────────────────┘
+┌───────────────┐        A2A        ┌──────────────────┐
+│  Team Lead    │ ───────────────►  │   Scrum Master   │
+│ (orchestrator)│                   │    (worker)      │
+└───────────────┘                   └──────────────────┘
        │                                    │
        └──── delegates tasks ────────────── └──── uses MCP tools
 ```
@@ -47,11 +47,10 @@ java -jar target/ai-agent-0.0.1-SNAPSHOT.jar
 
 ## Docker image
 
-> **Coming soon** — a pre-built image will be published to Docker Hub. Once available, you can replace the `build: .` directive in `docker-compose.yml` with the image reference:
+A pre-built image is published to GitHub Container Registry. Replace the `build: .` directive in `docker-compose.yml` with the image reference:
 
 ```yaml
-# Placeholder — replace with the published image once available
-image: nicholasmeyers/ai-agent:latest
+image: ghcr.io/nicholasm95/autonomous-multi-agent:1.0.0
 ```
 
 ---
