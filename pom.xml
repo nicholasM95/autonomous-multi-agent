@@ -11,7 +11,7 @@
 
     <groupId>be.nicholasmeyers</groupId>
     <artifactId>ai-agent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>ai-agent</name>
     <description>ai-agent</description>
