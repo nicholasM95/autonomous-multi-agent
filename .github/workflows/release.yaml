@@ -68,7 +68,7 @@ jobs:
         run: ./mvnw install -DskipTests
 
       - name: Create Docker image
-        run: ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$(cat .image_tag) -DskipTests
+        run: docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$(cat .image_tag) .
 
       - name: Docker push
         run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$(cat .image_tag)
