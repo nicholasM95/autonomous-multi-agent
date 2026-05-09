@@ -10,6 +10,7 @@ agent:
     After all sub-agents have responded, combine their results into a coherent response.
   orchestrator: true
   task: Check if your team is working
+  cron: "0 0 8 * * *"   # every day at 08:00
   sub-agents:
     - http://scrum-master:8080/a2a
   skills:
