@@ -74,8 +74,9 @@ agent:
   version: 1.0.0
   prompt: |
     You are ...                        # system prompt sent to the LLM
-  orchestrator: true                   # true = sends the trigger task on startup
+  orchestrator: true                   # true = sends the trigger task on schedule
   task: Do something useful            # only used when orchestrator: true
+  cron: "0 0 8 * * *"                 # schedule (default: every hour). only used when orchestrator: true
   sub-agents:
     - http://other-agent:8080/a2a      # agents this one can delegate to
   skills:
@@ -116,7 +117,7 @@ The `docker/` folder contains a ready-to-run example with two agents.
 
 ### Team Lead (orchestrator)
 
-Configured in `docker/team-lead/config/agent.yaml`. On startup it sends the task `"Check if your team is working"` to itself, then delegates sub-tasks to the Scrum Master using A2A tool calls. After all sub-agents have responded it combines the results into a final answer.
+Configured in `docker/team-lead/config/agent.yaml`. Every day at 08:00 it sends the task `"Check if your team is working"` to itself, then delegates sub-tasks to the Scrum Master using A2A tool calls. After all sub-agents have responded it combines the results into a final answer.
 
 **Skills exposed:**
 - `orchestrate tasks` — breaks down a request and delegates to sub-agents
